@@ -27,7 +27,7 @@
 			},
 			itemClick(){
 				this.$router.push('/detail/'+ this.goodsitem.iid)
-				console.log('跳转到详情页')
+				
 			}
 		}
 	}

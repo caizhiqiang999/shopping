@@ -1,7 +1,7 @@
 <template>
 	<div class="d_nav">
 		<navbar>
-			<div slot='left' class="left">
+			<div slot='left' class="left" @click="backClick">
 				<img src="../../../assets/image/home/back.svg" />
 			</div>
 			<div slot='middle' class="title">
@@ -28,6 +28,10 @@
 		methods:{
 			itemClick(index){
 				this.currentItem = index
+			},
+			backClick(){
+				// 返回
+				this.$router.go(-1)
 			}
 		}
 	}
@@ -44,7 +48,7 @@
 		color: red;
 	}
 	.left img{
-		padding-top: 4px;
+		margin-top: 10px;
 		
 	}
 </style>
