@@ -134,7 +134,7 @@
 			// 网络请求方法
 			getHomeMultidata(){
 				getHomeMultidata().then(res => {
-				console.log(res)
+				// console.log(res)
 				this.banners = res.data.banner.list
 				this.recommends  = res.data.recommend.list
 			})},
@@ -142,7 +142,7 @@
 			getHomeGoods(type){
 				const page = this.goods[type].page+1
 				getHomeGoods(type,page).then(res => {
-					console.log(res)
+					// console.log(res)
 					this.goods[type].list.push(...res.data.list)
 					this.goods[type].page += 1
 				})

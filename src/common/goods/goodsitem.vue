@@ -1,5 +1,5 @@
 <template>
-	<div class="goods-item">
+	<div class="goods-item" @click="itemClick">
 		<a>
 			<img :src="goodsitem.show.img" @load="imgLoad"/>
 			<div>
@@ -24,6 +24,10 @@
 		methods:{
 			imgLoad(){
 				this.$bus.$emit('imgLoad')
+			},
+			itemClick(){
+				this.$router.push('/detail/'+ this.goodsitem.iid)
+				console.log('跳转到详情页')
 			}
 		}
 	}
