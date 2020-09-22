@@ -1,40 +1,6 @@
 <template>
-	<div id="category" class="wrapper">
-		<ul class="content">
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-			<li>111111</li>
-		</ul>
+	<div id="category">
+		
 	</div>
 </template>
 
@@ -53,9 +19,5 @@
 </script>
 
 <style>
-	.wrapper{
-		height: 150px;
-		background-color: red;
-		overflow: hidden;
-	}
+	
 </style>
