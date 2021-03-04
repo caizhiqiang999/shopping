@@ -9,6 +9,12 @@ export function getDetailGoods(iid){
 		}
 	})
 }
+export function getRecommend(){
+	return axios_01({
+		url:'/recommend'
+		
+	})
+}
 
 export class Goods {
   constructor(itemInfo, columns, services) {

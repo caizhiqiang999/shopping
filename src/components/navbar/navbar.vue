@@ -1,23 +1,23 @@
 <template>
 	<div class="nav-bar">
 		<navbaritem path='/home'>
-			<img slot="img1" src="../../assets/image/tabbar/home.svg" alt=""/>
-			<img slot="img2" src="../../assets/image/tabbar/home_active.svg" alt=""/>
+			<img slot="img1" src="../assets/image/tabbar/home.svg" alt=""/>
+			<img slot="img2" src="../assets/image/tabbar/home_active.svg" alt=""/>
 			<div slot="text">首页</div>
 		</navbaritem>
 		<navbaritem path='/category'>
-			<img slot="img1" src="../../assets/image/tabbar/category.svg" alt=""/>
-			<img slot="img2" src="../../assets/image/tabbar/category_active.svg" alt=""/>
+			<img slot="img1" src="../assets/image/tabbar/category.svg" alt=""/>
+			<img slot="img2" src="../assets/image/tabbar/category_active.svg" alt=""/>
 			<div slot="text">分类</div>
 		</navbaritem>
 		<navbaritem path='/cart'>
-			<img slot="img1" src="../../assets/image/tabbar/cart.svg" alt=""/>
-			<img slot="img2" src="../../assets/image/tabbar/cart_active.svg" alt=""/>
+			<img slot="img1" src="../assets/image/tabbar/cart.svg" alt=""/>
+			<img slot="img2" src="../assets/image/tabbar/cart_active.svg" alt=""/>
 			<div slot="text">购物车</div>
 		</navbaritem>
 		<navbaritem path='/profile'>
-			<img slot="img1" src="../../assets/image/tabbar/profile.svg" alt=""/>
-			<img slot="img2" src="../../assets/image/tabbar/profile_active.svg" alt=""/>
+			<img slot="img1" src="../assets/image/tabbar/profile.svg" alt=""/>
+			<img slot="img2" src="../assets/image/tabbar/profile_active.svg" alt=""/>
 			<div slot="text">我的</div>
 		</navbaritem>
 	</div>

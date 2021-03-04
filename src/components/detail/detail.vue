@@ -1,11 +1,14 @@
 <template>
 	<div id="detail">
-		<Nav></Nav>
+		<Nav @titleClick = 'titleClick' ></Nav>
 		<Scroll class='content' ref='scroll'>
 		<Top :topImage='topImage'></Top>
 		<ItemGoods :goods='goods'></ItemGoods>
 		<DetailShopInfo :shop='shop'></DetailShopInfo>
 		<DetailGoodsInfo :detailInfo='detailInfo' @imageLoad='imgLoad'></DetailGoodsInfo>
+		<DetailParamsInfo ref = 'params' :paramInfo = 'itemParams'></DetailParamsInfo>
+		<DetailCommentInfo ref='comment' :commentInfo = 'commentInfo'></DetailCommentInfo>
+		<GoodsG ref='goods' :goods = 'recommends'></GoodsG>
 		</Scroll>
 	</div>
 </template>
@@ -17,16 +20,23 @@
 	import ItemGoods from './itemdetail/goods.vue'
 	import DetailShopInfo from './itemdetail/DetailShopInfo.vue'
 	import DetailGoodsInfo from './itemdetail/DetailGoodsInfo.vue'
-	import {getDetailGoods,Goods,Shop} from '../../network/detail.js'
+	import {getDetailGoods,Goods,Shop,getRecommend} from '../../network/detail.js'
+	import DetailParamsInfo from './itemdetail/detailparamsinfo.vue'
+	import DetailCommentInfo from './itemdetail/DetailCommentInfo.vue'
+	import GoodsG from '../../common/goods/goods.vue'
 	export default{
-		name:'Detail',
+		
 		data(){
 			return{
 				iid:null,
 				topImage:[],
 				goods:{},
 				shop:{},
-				detailInfo:[]
+				detailInfo:{},
+				itemParams:{},
+				commentInfo:{},
+				recommends:[],
+				themeTopYs:[]
 			}
 		},
 		components:{
@@ -35,23 +45,50 @@
 			ItemGoods,
 			DetailShopInfo,
 			Scroll,
-			DetailGoodsInfo
+			DetailGoodsInfo,
+			DetailParamsInfo,
+			DetailCommentInfo,
+			GoodsG
 		},
 		methods:{
 			imgLoad(){
 				this.$refs.scroll.refresh()
+				this.themeTopYs = []
+				this.themeTopYs.push(0)
+				this.themeTopYs.push(this.$refs.params.$el.offsetTop)
+				this.themeTopYs.push(this.$refs.comment.$el.offsetTop)
+				this.themeTopYs.push(this.$refs.goods.$el.offsetTop)
+				console.log(this.themeTopYs)
+			},
+			titleClick(index){
+				
+				// this.$refs.scroll.scrollTo()
 			}
 		},
 		created(){
 			this.iid = this.$route.params.iid
 			
 			getDetailGoods(this.iid).then(res => {
+				
 				this.topImage = res.result.itemInfo.topImages
 				let data = res.result
 				this.goods = new Goods(data.itemInfo,data.columns,data.shopInfo.services)
 				this.shop = new Shop(data.shopInfo)
 				this.detailInfo = data.detailInfo
+				this.itemParams = data.itemParams
+				if(data.rate.cRate !== 0){
+					this.commentInfo = data.rate.list[0]
+				}
+				
 			})
+			
+			getRecommend().then(res => {
+				
+				this.recommends = res.data.list
+			})
+		},
+		mounted(){
+			
 		}
 	}
 </script>

@@ -28,6 +28,7 @@
 		methods:{
 			itemClick(index){
 				this.currentItem = index
+				this.$emit('titleClick',index)
 			},
 			backClick(){
 				// 返回

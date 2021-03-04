@@ -19,8 +19,12 @@
     props: {
       detailInfo: {
         type: Object
+		
       }
-    }
+    },
+	created(){
+		
+	}
 	}
 </script>
 
